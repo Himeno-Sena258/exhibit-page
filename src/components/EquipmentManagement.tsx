@@ -66,9 +66,9 @@ const EquipmentManagement: React.FC = () => {
         <div className="w-full h-full flex flex-col">
             {/* 设备状态标题 */}
             <div className="pt-4 pb-4">
-                <h1 className="text-center text-white text-2xl font-bold">
+                <h5 className="text-center text-white text-2xl font-bold">
                     设备状态
-                </h1>
+                </h5>
             </div>
 
             {/* 设备状态统计圆形进度条 */}
