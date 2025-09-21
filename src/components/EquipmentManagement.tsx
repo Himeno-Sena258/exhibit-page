@@ -14,10 +14,8 @@ const EquipmentManagement: React.FC = () => {
      * 组件挂载时加载设备状态列表
      */
     useEffect(() => {
-        if (equipmentStatusList.length === 0) {
-            loadEquipmentStatusList();
-        }
-    }, [loadEquipmentStatusList]);
+        loadEquipmentStatusList();
+    }, []); // 移除loadEquipmentStatusList依赖，避免重复调用
 
     /**
      * 设备状态配置字典
@@ -36,7 +34,14 @@ const EquipmentManagement: React.FC = () => {
      * 根据设备列表统计各种状态的设备数量
      */
     const equipmentStats = useMemo(() => {
-        const stats = { ...statusConfig };
+        // 重新创建统计对象，避免在原有基础上累加
+        const stats = {
+            '设备总数': { count: 0, color: '#00D4FF', label: '设备总数' },
+            '运行数量': { count: 0, color: '#00D4FF', label: '运行数量' },
+            '故障数量': { count: 0, color: '#FF6B6B', label: '故障数量' },
+            '待机数量': { count: 0, color: '#FFD93D', label: '待机数量' },
+            '关机数量': { count: 0, color: '#6C7B7F', label: '关机数量' }
+        };
         
         // 设置设备总数
         stats['设备总数'].count = equipmentStatusList.length;
@@ -60,7 +65,7 @@ const EquipmentManagement: React.FC = () => {
         });
 
         return stats;
-    }, [equipmentStatusList, statusConfig]);
+    }, [equipmentStatusList]);
 
     return (
         <div className="w-full h-full flex flex-col">
