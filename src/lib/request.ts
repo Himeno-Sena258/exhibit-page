@@ -23,9 +23,9 @@ const request = (config: AxiosRequestConfig) => {
       return response;
     },
     error => {
-      // Check if error.response exists before accessing its properties
+
       if (error.response) {
-        // 验证失败时清除token
+
         if (error.response.status === 401 || error.response.status === 403) {
           useAuthStore.getState().setAccessToken(null);
           useAuthStore.getState().setIsAuthenticated(false);
@@ -36,7 +36,6 @@ const request = (config: AxiosRequestConfig) => {
             'An error occurred'
         );
       }
-      // Handle network errors, timeouts, etc.
       return Promise.reject(error.message || 'Network error');
     }
   );

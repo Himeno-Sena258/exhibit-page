@@ -45,7 +45,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
           height={size}
           className="transform -rotate-90"
         >
-          {/* 背景圆环 */}
+
           <circle
             cx={size / 2}
             cy={size / 2}
@@ -54,7 +54,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
             strokeWidth={strokeWidth}
             fill="transparent"
           />
-          {/* 进度圆环 */}
+
           <circle
             cx={size / 2}
             cy={size / 2}
@@ -68,14 +68,14 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
             className="transition-all duration-500 ease-in-out"
           />
         </svg>
-        {/* 中心数值 */}
+
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-2xl font-bold text-white">
             {value}
           </span>
         </div>
       </div>
-      {/* 标签 */}
+
       <div className="mt-2 text-white text-sm font-medium">
         {label}
       </div>

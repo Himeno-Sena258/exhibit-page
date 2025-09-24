@@ -3,19 +3,8 @@ import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Legend, Responsi
 import useChartDataStore from '@/stores/chart-data-store';
 import { type chartData } from '@/types';
 
-/**
- * 维护统计图表组件
- * 展示维护统计分析，包含：
- * - 左侧Y轴：需保养数和已保养数（柱状图）
- * - 右侧Y轴：保养率（折线图，百分比显示）
- * - X轴：日期
- */
 const MaintenanceChart: React.FC = () => {
     const { maintenanceDataList, loadMaintenanceDataList } = useChartDataStore();
-
-    /**
-     * 组件挂载时加载维护数据
-     */
     useEffect(() => {
         if (maintenanceDataList.length === 0) {
             loadMaintenanceDataList();
@@ -28,21 +17,17 @@ const MaintenanceChart: React.FC = () => {
      */
     const chartData = useMemo(() => {
         return maintenanceDataList.map((item: chartData) => {
-            // 计算保养率：已保养/需保养 * 100%
             const maintenanceRate = item.target > 0 ? (item.actual / item.target * 100) : 0;
             
             return {
                 日期: item.date,
                 需保养: item.target,
                 已保养: item.actual,
-                保养率: Number(maintenanceRate.toFixed(1)) // 保留一位小数
+                保养率: Number(maintenanceRate.toFixed(1)) 
             };
         });
     }, [maintenanceDataList]);
 
-    /**
-     * 自定义Tooltip内容组件
-     */
     const CustomTooltip = ({ active, payload, label }: any) => {
         if (active && payload && payload.length) {
             return (
@@ -69,7 +54,6 @@ const MaintenanceChart: React.FC = () => {
                     <ComposedChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.2)" />
                         
-                        {/* X轴 - 日期 */}
                         <XAxis 
                             dataKey="日期" 
                             axisLine={false}
@@ -77,7 +61,6 @@ const MaintenanceChart: React.FC = () => {
                             tick={{ fill: 'white', fontSize: 12 }}
                         />
                         
-                        {/* 左侧Y轴 - 保养数量 */}
                         <YAxis 
                             yAxisId="left"
                             axisLine={false}
@@ -86,7 +69,6 @@ const MaintenanceChart: React.FC = () => {
                             label={{ value: '数量', angle: -90, position: 'insideLeft', style: { textAnchor: 'middle', fill: 'white' } }}
                         />
                         
-                        {/* 右侧Y轴 - 保养率（百分比） */}
                         <YAxis 
                             yAxisId="right"
                             orientation="right"
@@ -98,7 +80,6 @@ const MaintenanceChart: React.FC = () => {
                             label={{ value: '保养率', angle: 90, position: 'insideRight', style: { textAnchor: 'middle', fill: 'white' } }}
                         />
                         
-                        {/* Tooltip */}
                         <Tooltip 
                             labelStyle={{ color: '#333333' }}
                             contentStyle={{
@@ -116,13 +97,11 @@ const MaintenanceChart: React.FC = () => {
                             }}
                         />
                         
-                        {/* 图例 */}
                         <Legend 
                             wrapperStyle={{ color: 'white' }}
                             iconType="rect"
                         />
                         
-                        {/* 需保养数柱状图 - 青色 */}
                         <Bar 
                             yAxisId="left"
                             dataKey="需保养" 
@@ -131,7 +110,6 @@ const MaintenanceChart: React.FC = () => {
                             radius={[2, 2, 0, 0]}
                         />
                         
-                        {/* 已保养数柱状图 - 浅蓝色 */}
                         <Bar 
                             yAxisId="left"
                             dataKey="已保养" 
@@ -140,7 +118,6 @@ const MaintenanceChart: React.FC = () => {
                             radius={[2, 2, 0, 0]}
                         />
                         
-                        {/* 保养率折线图 - 金色 */}
                         <Line 
                             yAxisId="right"
                             type="monotone" 

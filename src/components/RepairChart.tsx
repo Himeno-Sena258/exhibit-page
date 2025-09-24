@@ -3,46 +3,26 @@ import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Legend, Responsi
 import useChartDataStore from '@/stores/chart-data-store';
 import { type chartData } from '@/types';
 
-/**
- * 维修统计图表组件
- * 展示维修统计分析，包含：
- * - 左侧Y轴：需维修数和已维修数（柱状图）
- * - 右侧Y轴：维修率（折线图，百分比显示）
- * - X轴：日期
- */
 const RepairChart: React.FC = () => {
     const { repairDataList, loadRepairDataList } = useChartDataStore();
-
-    /**
-     * 组件挂载时加载维修数据
-     */
     useEffect(() => {
         if (repairDataList.length === 0) {
             loadRepairDataList();
         }
     }, [loadRepairDataList, repairDataList]);
-
-    /**
-     * 处理维修数据，计算维修率
-     * 将原始数据转换为图表所需格式
-     */
     const chartData = useMemo(() => {
         return repairDataList.map((item: chartData) => {
-            // 计算维修率：已维修/需维修 * 100%
             const repairRate = item.target > 0 ? (item.actual / item.target * 100) : 0;
             
             return {
                 日期: item.date,
                 需维修: item.target,
                 已维修: item.actual,
-                维修率: Number(repairRate.toFixed(1)) // 保留一位小数
+                维修率: Number(repairRate.toFixed(1))
             };
         });
     }, [repairDataList]);
 
-    /**
-     * 自定义Tooltip内容组件
-     */
     const CustomTooltip = ({ active, payload, label }: any) => {
         if (active && payload && payload.length) {
             return (
@@ -69,7 +49,6 @@ const RepairChart: React.FC = () => {
                     <ComposedChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.2)" />
                         
-                        {/* X轴 - 日期 */}
                         <XAxis 
                             dataKey="日期" 
                             axisLine={false}
@@ -77,7 +56,6 @@ const RepairChart: React.FC = () => {
                             tick={{ fill: 'white', fontSize: 12 }}
                         />
                         
-                        {/* 左侧Y轴 - 维修数量 */}
                         <YAxis 
                             yAxisId="left"
                             axisLine={false}
@@ -86,7 +64,6 @@ const RepairChart: React.FC = () => {
                             label={{ value: '数量', angle: -90, position: 'insideLeft', style: { textAnchor: 'middle', fill: 'white' } }}
                         />
                         
-                        {/* 右侧Y轴 - 维修率（百分比） */}
                         <YAxis 
                             yAxisId="right"
                             orientation="right"
@@ -98,7 +75,6 @@ const RepairChart: React.FC = () => {
                             label={{ value: '维修率', angle: 90, position: 'insideRight', style: { textAnchor: 'middle', fill: 'white' } }}
                         />
                         
-                        {/* Tooltip */}
                         <Tooltip 
                             labelStyle={{ color: '#333333' }}
                             contentStyle={{
@@ -116,13 +92,11 @@ const RepairChart: React.FC = () => {
                             }}
                         />
                         
-                        {/* 图例 */}
                         <Legend 
                             wrapperStyle={{ color: 'white' }}
                             iconType="rect"
                         />
                         
-                        {/* 需维修数柱状图 - 青色 */}
                         <Bar 
                             yAxisId="left"
                             dataKey="需维修" 
@@ -131,7 +105,6 @@ const RepairChart: React.FC = () => {
                             radius={[2, 2, 0, 0]}
                         />
                         
-                        {/* 已维修数柱状图 - 浅蓝色 */}
                         <Bar 
                             yAxisId="left"
                             dataKey="已维修" 
@@ -140,7 +113,6 @@ const RepairChart: React.FC = () => {
                             radius={[2, 2, 0, 0]}
                         />
                         
-                        {/* 维修率折线图 - 金色 */}
                         <Line 
                             yAxisId="right"
                             type="monotone" 

@@ -3,10 +3,6 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import useFaultStore from '@/stores/fault-store';
 import { type fault } from '@/types';
 
-/**
- * 故障类型统计饼状图组件
- * 从故障管理组件中独立出来的饼状图部分
- */
 const FaultTypePieChart: React.FC = () => {
     const { faultList, loadFaultList } = useFaultStore();
 
@@ -16,9 +12,6 @@ const FaultTypePieChart: React.FC = () => {
         }
     }, [loadFaultList, faultList]);
 
-    /**
-     * 饼状图数据
-     */
     const pieChartData = useMemo(() => {
         const faultTypeCount = new Map<string, number>();
         
@@ -33,19 +26,14 @@ const FaultTypePieChart: React.FC = () => {
         }));
     }, [faultList]);
 
-    // 饼状图颜色配置
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8', '#82CA9D', '#FFC658'];
 
-    /**
-     * 饼状图自定义标签
-     */
     const renderLabel = (entry: { name: string; value: number }) => {
         return entry.name;
     };
 
     return (
         <div className="w-full h-full flex flex-col">
-            {/* 故障类型统计标题 */}
             <h2 className="text-white text-base font-bold mb-1 text-center">
                 故障类型统计
             </h2>

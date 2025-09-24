@@ -3,32 +3,18 @@ import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Legend, Responsi
 import useChartDataStore from '@/stores/chart-data-store';
 import { type chartData } from '@/types';
 
-/**
- * 点检统计图表组件
- * 展示点检统计分析，包含：
- * - 左侧Y轴：需点检数和已点检数（柱状图）
- * - 右侧Y轴：点检率（折线图，百分比显示）
- * - X轴：日期
- */
 const InspectionChart: React.FC = () => {
     const { inspectionDataList, loadInspectionDataList } = useChartDataStore();
-
-    /**
-     * 组件挂载时加载点检数据
-     */
     useEffect(() => {
         if (inspectionDataList.length === 0) {
             loadInspectionDataList();
         }
     }, [loadInspectionDataList, inspectionDataList]);
 
-    /**
-     * 处理点检数据，计算点检率
-     * 将原始数据转换为图表所需格式
-     */
+
     const chartData = useMemo(() => {
         return inspectionDataList.map((item: chartData) => {
-            // 计算点检率：已点检/需点检 * 100%
+
             const inspectionRate = item.target > 0 ? (item.actual / item.target * 100) : 0;
             
             return {

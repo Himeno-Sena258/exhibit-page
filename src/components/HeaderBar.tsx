@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logoImage from '@/assets/ririshun.png';
 
 interface HeaderBarProps {
   title: string;
@@ -12,10 +13,6 @@ interface HeaderBarProps {
  */
 const HeaderBar: React.FC<HeaderBarProps> = ({ title, className = '' }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
-
-  /**
-   * 更新当前时间
-   */
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -42,14 +39,22 @@ const HeaderBar: React.FC<HeaderBarProps> = ({ title, className = '' }) => {
 
   return (
     <div className={`w-full bg-gradient-to-r from-blue-800 to-blue-900 shadow-lg ${className}`}>
-      {/* 标题行 - 完全居中 */}
-      <div className="w-full h-16 flex items-center justify-center px-6">
-        <h1 className="text-white text-3xl font-bold">
-          {title}
-        </h1>
+      <div className="w-full h-16 flex items-center px-6 relative">
+        <div className="flex items-center">
+          <img 
+            src={logoImage} 
+            alt="Logo" 
+            className="h-44 w-auto object-contain"
+          />
+        </div>
+        
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <h1 className="text-white text-3xl font-bold whitespace-nowrap">
+            {title}
+          </h1>
+        </div>
       </div>
       
-      {/* 时间行 - 右对齐 */}
       <div className="w-full h-12 flex items-center justify-end px-6 bg-gradient-to-r from-blue-800 to-blue-900">
         <div className="text-white text-lg font-medium">
           {formatDateTime(currentTime)}

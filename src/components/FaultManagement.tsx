@@ -3,10 +3,7 @@ import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Legend, Responsi
 import useFaultStore from '@/stores/fault-store';
 import { type fault } from '@/types';
 
-/**
- * 故障管理组件
- * 包含两个子块：前五类频出故障、故障统计分析图表
- */
+
 const FaultManagement: React.FC = () => {
     const { faultList, loadFaultList } = useFaultStore();
 
@@ -16,9 +13,6 @@ const FaultManagement: React.FC = () => {
         }
     }, [loadFaultList, faultList]);
 
-    /**
-     * 计算设备故障次数统计（前5名）
-     */
     const topFaultEquipments = useMemo(() => {
         const equipmentFaultCount = new Map<string, number>();
         
@@ -80,13 +74,11 @@ const FaultManagement: React.FC = () => {
 
     return (
         <div className="w-full h-full flex flex-col space-y-2">
-            {/* 上子块：前五类频出故障名称和故障设备 - 40%高度 */}
             <div className="h-[40%] min-h-0 flex flex-col">
                 <h2 className="text-white text-base font-bold mb-1 text-center">
                     前五类频出故障名称和故障设备
                 </h2>
                 <div className="flex-1 grid grid-cols-2 gap-3 min-h-0">
-                    {/* 左侧：设备故障次数列表 */}
                     <div className="flex flex-col min-h-0">
                         <div className="bg-white/5 rounded-lg overflow-hidden flex-1 flex flex-col">
                             <div className="grid grid-cols-3 bg-blue-600/50 text-white font-semibold p-2 text-sm">
@@ -105,8 +97,6 @@ const FaultManagement: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    
-                    {/* 右侧：故障类型统计列表 */}
                     <div className="flex flex-col min-h-0">
                         <div className="bg-white/5 rounded-lg overflow-hidden flex-1 flex flex-col">
                             <div className="grid grid-cols-3 bg-blue-600/50 text-white font-semibold p-2 text-sm">
@@ -128,7 +118,6 @@ const FaultManagement: React.FC = () => {
                 </div>
             </div>
 
-            {/* 下子块：故障统计分析折线柱状图 - 60%高度 */}
             <div className="h-[60%] min-h-0 flex flex-col">
                 <h2 className="text-white text-base font-bold mb-1 text-center">
                     故障统计分析
