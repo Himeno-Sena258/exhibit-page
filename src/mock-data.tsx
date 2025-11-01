@@ -3,92 +3,92 @@ import { type equipment, type fault, type bussiness, type chartData } from '@/ty
 /**
  * 设备模拟数据
  * 总计68条数据，按要求分配状态和类型
- * 状态分布：运行中46个，故障12个，待机2个，关机8个
+ * 状态分布：进行中46个，待处理12个，待审批2个，延期8个
  * 设备类型：堆垛机占1/3（23个），其余类型随机分配
  */
 export const mockEquipmentStatusList: equipment[] = [
-  // 运行中的设备 (46个)
-  { id: 'SB-ZC-01', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-02', type: 'RGV', status: '运行中' },
-  { id: 'SB-ZC-03', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-04', type: '机械手', status: '运行中' },
-  { id: 'SB-ZC-05', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-06', type: '托盘输送线', status: '运行中' },
-  { id: 'SB-ZC-07', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-08', type: '四向车', status: '运行中' },
-  { id: 'SB-ZC-09', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-10', type: 'RGV', status: '运行中' },
-  { id: 'SB-ZC-11', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-12', type: '机械手', status: '运行中' },
-  { id: 'SB-ZC-13', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-14', type: '托盘输送线', status: '运行中' },
-  { id: 'SB-ZC-15', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-16', type: '四向车', status: '运行中' },
-  { id: 'SB-ZC-17', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-18', type: 'RGV', status: '运行中' },
-  { id: 'SB-ZC-19', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-20', type: '机械手', status: '运行中' },
-  { id: 'SB-ZC-21', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-22', type: '托盘输送线', status: '运行中' },
-  { id: 'SB-ZC-23', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-24', type: '四向车', status: '运行中' },
-  { id: 'SB-ZC-25', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-26', type: 'RGV', status: '运行中' },
-  { id: 'SB-ZC-27', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-28', type: '机械手', status: '运行中' },
-  { id: 'SB-ZC-29', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-30', type: '托盘输送线', status: '运行中' },
-  { id: 'SB-ZC-31', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-32', type: '四向车', status: '运行中' },
-  { id: 'SB-ZC-33', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-34', type: 'RGV', status: '运行中' },
-  { id: 'SB-ZC-35', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-36', type: '机械手', status: '运行中' },
-  { id: 'SB-ZC-37', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-38', type: '托盘输送线', status: '运行中' },
-  { id: 'SB-ZC-39', type: '堆垛机', status: '运行中' },
-  { id: 'SB-ZC-40', type: '四向车', status: '运行中' },
-  { id: 'SB-ZC-41', type: 'RGV', status: '运行中' },
-  { id: 'SB-ZC-42', type: '机械手', status: '运行中' },
-  { id: 'SB-ZC-43', type: '托盘输送线', status: '运行中' },
-  { id: 'SB-ZC-44', type: '四向车', status: '运行中' },
-  { id: 'SB-ZC-45', type: 'RGV', status: '运行中' },
-  { id: 'SB-ZC-46', type: '机械手', status: '运行中' },
+  // 进行中的设备 (46个)
+  { id: 'SB-ZC-01', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-02', type: 'RGV', status: '进行中' },
+  { id: 'SB-ZC-03', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-04', type: '机械手', status: '进行中' },
+  { id: 'SB-ZC-05', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-06', type: '托盘输送线', status: '进行中' },
+  { id: 'SB-ZC-07', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-08', type: '四向车', status: '进行中' },
+  { id: 'SB-ZC-09', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-10', type: 'RGV', status: '进行中' },
+  { id: 'SB-ZC-11', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-12', type: '机械手', status: '进行中' },
+  { id: 'SB-ZC-13', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-14', type: '托盘输送线', status: '进行中' },
+  { id: 'SB-ZC-15', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-16', type: '四向车', status: '进行中' },
+  { id: 'SB-ZC-17', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-18', type: 'RGV', status: '进行中' },
+  { id: 'SB-ZC-19', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-20', type: '机械手', status: '进行中' },
+  { id: 'SB-ZC-21', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-22', type: '托盘输送线', status: '进行中' },
+  { id: 'SB-ZC-23', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-24', type: '四向车', status: '进行中' },
+  { id: 'SB-ZC-25', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-26', type: 'RGV', status: '进行中' },
+  { id: 'SB-ZC-27', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-28', type: '机械手', status: '进行中' },
+  { id: 'SB-ZC-29', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-30', type: '托盘输送线', status: '进行中' },
+  { id: 'SB-ZC-31', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-32', type: '四向车', status: '进行中' },
+  { id: 'SB-ZC-33', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-34', type: 'RGV', status: '进行中' },
+  { id: 'SB-ZC-35', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-36', type: '机械手', status: '进行中' },
+  { id: 'SB-ZC-37', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-38', type: '托盘输送线', status: '进行中' },
+  { id: 'SB-ZC-39', type: '堆垛机', status: '进行中' },
+  { id: 'SB-ZC-40', type: '四向车', status: '进行中' },
+  { id: 'SB-ZC-41', type: 'RGV', status: '进行中' },
+  { id: 'SB-ZC-42', type: '机械手', status: '进行中' },
+  { id: 'SB-ZC-43', type: '托盘输送线', status: '进行中' },
+  { id: 'SB-ZC-44', type: '四向车', status: '进行中' },
+  { id: 'SB-ZC-45', type: 'RGV', status: '进行中' },
+  { id: 'SB-ZC-46', type: '机械手', status: '进行中' },
 
-  // 故障的设备 (12个)
-  { id: 'SB-ZC-47', type: '堆垛机', status: '故障' },
-  { id: 'SB-ZC-48', type: 'RGV', status: '故障' },
-  { id: 'SB-ZC-49', type: '堆垛机', status: '故障' },
-  { id: 'SB-ZC-50', type: '机械手', status: '故障' },
-  { id: 'SB-ZC-51', type: '托盘输送线', status: '故障' },
-  { id: 'SB-ZC-52', type: '四向车', status: '故障' },
-  { id: 'SB-ZC-53', type: '堆垛机', status: '故障' },
-  { id: 'SB-ZC-54', type: 'RGV', status: '故障' },
-  { id: 'SB-ZC-55', type: '机械手', status: '故障' },
-  { id: 'SB-ZC-56', type: '托盘输送线', status: '故障' },
-  { id: 'SB-ZC-57', type: '四向车', status: '故障' },
-  { id: 'SB-ZC-58', type: 'RGV', status: '故障' },
+  // 待处理的设备 (12个)
+  { id: 'SB-ZC-47', type: '堆垛机', status: '待处理' },
+  { id: 'SB-ZC-48', type: 'RGV', status: '待处理' },
+  { id: 'SB-ZC-49', type: '堆垛机', status: '待处理' },
+  { id: 'SB-ZC-50', type: '机械手', status: '待处理' },
+  { id: 'SB-ZC-51', type: '托盘输送线', status: '待处理' },
+  { id: 'SB-ZC-52', type: '四向车', status: '待处理' },
+  { id: 'SB-ZC-53', type: '堆垛机', status: '待处理' },
+  { id: 'SB-ZC-54', type: 'RGV', status: '待处理' },
+  { id: 'SB-ZC-55', type: '机械手', status: '待处理' },
+  { id: 'SB-ZC-56', type: '托盘输送线', status: '待处理' },
+  { id: 'SB-ZC-57', type: '四向车', status: '待处理' },
+  { id: 'SB-ZC-58', type: 'RGV', status: '待处理' },
 
-  // 待机的设备 (2个)
-  { id: 'SB-ZC-59', type: '机械手', status: '待机' },
-  { id: 'SB-ZC-60', type: '托盘输送线', status: '待机' },
+  // 待审批的设备 (2个)
+  { id: 'SB-ZC-59', type: '机械手', status: '待审批' },
+  { id: 'SB-ZC-60', type: '托盘输送线', status: '待审批' },
 
-  // 关机的设备 (8个)
-  { id: 'SB-ZC-61', type: '四向车', status: '关机' },
-  { id: 'SB-ZC-62', type: 'RGV', status: '关机' },
-  { id: 'SB-ZC-63', type: '机械手', status: '关机' },
-  { id: 'SB-ZC-64', type: '托盘输送线', status: '关机' },
-  { id: 'SB-ZC-65', type: '四向车', status: '关机' },
-  { id: 'SB-ZC-66', type: 'RGV', status: '关机' },
-  { id: 'SB-ZC-67', type: '机械手', status: '关机' },
-  { id: 'SB-ZC-68', type: '托盘输送线', status: '关机' },
+  // 延期的设备 (8个)
+  { id: 'SB-ZC-61', type: '四向车', status: '延期' },
+  { id: 'SB-ZC-62', type: 'RGV', status: '延期' },
+  { id: 'SB-ZC-63', type: '机械手', status: '延期' },
+  { id: 'SB-ZC-64', type: '托盘输送线', status: '延期' },
+  { id: 'SB-ZC-65', type: '四向车', status: '延期' },
+  { id: 'SB-ZC-66', type: 'RGV', status: '延期' },
+  { id: 'SB-ZC-67', type: '机械手', status: '延期' },
+  { id: 'SB-ZC-68', type: '托盘输送线', status: '延期' },
 ]
 
 /**
- * 故障模拟数据生成函数
- * 生成最近7天的150条故障数据，满足以下要求：
- * 1. 每天故障数量不同，有明显差距
- * 2. 故障类型分布：设备故障最多，其他最少
+ * 待处理模拟数据生成函数
+ * 生成最近7天的150条待处理数据，满足以下要求：
+ * 1. 每天待处理数量不同，有明显差距
+ * 2. 待处理类型分布：设备待处理最多，其他最少
  * 3. 负责人：张三、李四、王五
  * 4. 状态：已完成最多，但至少40条为剩余或预实差
  */
@@ -97,32 +97,33 @@ function generateMockFaultData(): fault[] {
     ['机构故障', '设备故障', '电控故障', '软件故障', '输送超时', '超界', '其他'];
   
   const persons = ['张三', '李四', '王五'];
-  const statuses: Array<'已完成' | '剩余' | '预实差'> = ['已完成', '剩余', '预实差'];
+  const statuses: Array<'优质' | '合格' | '待整改' | '不合格'> = ['优质', '合格', '待整改', '不合格'];
   
-  // 设备故障类型权重分布（设备故障最多，其他最少）
+  // 设备待处理类型权重分布（设备待处理最多，其他最少）
   const faultTypeWeights = {
-    '设备故障': 40,    // 40%
-    '电控故障': 20,    // 20%
-    '机构故障': 15,    // 15%
-    '软件故障': 10,    // 10%
+    '设备待处理': 40,    // 40%
+    '电控待处理': 20,    // 20%
+    '机构待处理': 15,    // 15%
+    '软件待处理': 10,    // 10%
     '输送超时': 8,     // 8%
     '超界': 5,         // 5%
     '其他': 2          // 2%
   };
 
-  // 每天的故障数量分布（总共150条，7天，差距明显）
+  // 每天的待处理数量分布（总共150条，7天，差距明显）
   const dailyFaultCounts = [35, 8, 25, 12, 30, 18, 22]; // 总计150条
   
   // 状态分布：已完成110条，剩余25条，预实差15条
   const statusDistribution = {
-    '已完成': 110,
-    '剩余': 25,
-    '预实差': 15
+    '优质': 110,
+    '合格': 25,
+    '待整改': 15,
+    '不合格': 10
   };
 
   const faults: fault[] = [];
   let faultIdCounter = 1;
-  const statusCounts = { '已完成': 0, '剩余': 0, '预实差': 0 };
+  const statusCounts = { '优质': 0, '合格': 0, '待整改': 0, '不合格': 0 };    
 
   // 获取最近7天的日期
   const today = new Date();
@@ -152,16 +153,19 @@ function generateMockFaultData(): fault[] {
       }
 
       // 选择状态（确保满足分布要求）
-      let selectedStatus: typeof statuses[0] = '已完成';
-      if (statusCounts['已完成'] < statusDistribution['已完成']) {
-        selectedStatus = '已完成';
-        statusCounts['已完成']++;
-      } else if (statusCounts['剩余'] < statusDistribution['剩余']) {
-        selectedStatus = '剩余';
-        statusCounts['剩余']++;
+      let selectedStatus: typeof statuses[0] = '优质';
+      if (statusCounts['优质'] < statusDistribution['优质']) {
+        selectedStatus = '优质';
+        statusCounts['优质']++;
+      } else if (statusCounts['合格'] < statusDistribution['合格']) {
+        selectedStatus = '合格';
+        statusCounts['合格']++;
+      } else if (statusCounts['待整改'] < statusDistribution['待整改']) {
+        selectedStatus = '待整改';
+        statusCounts['待整改']++;
       } else {
-        selectedStatus = '预实差';
-        statusCounts['预实差']++;
+        selectedStatus = '不合格';
+        statusCounts['不合格']++;
       }
 
       // 生成设备ID（SB-ZC-01到SB-ZC-68）
@@ -248,12 +252,13 @@ function generateMockBussinessData(): bussiness[] {
 
   // 状态分布权重（随机分配，不均分）
   const statusWeights = {
-    '已完成': 65,    // 65%
-    '剩余': 25,      // 25%
-    '预实差': 10     // 10%
+    '优质': 60,    // 65%
+    '合格': 25,      // 25%
+    '待整改': 10,     // 10%
+    '不合格': 5      // 5%
   };
 
-  const statuses: Array<'已完成' | '剩余' | '预实差'> = ['已完成', '剩余', '预实差'];
+  const statuses: Array<'优质' | '合格' | '待整改' | '不合格'> = ['优质', '合格', '待整改', '不合格'];
   const bussinessList: bussiness[] = [];
 
   // 生成300条业务数据
@@ -267,7 +272,7 @@ function generateMockBussinessData(): bussiness[] {
     // 根据权重随机选择状态
     const rand = Math.random() * 100;
     let cumulativeWeight = 0;
-    let selectedStatus: typeof statuses[0] = '已完成';
+    let selectedStatus: typeof statuses[0] = '优质';
     
     for (const [status, weight] of Object.entries(statusWeights)) {
       cumulativeWeight += weight;

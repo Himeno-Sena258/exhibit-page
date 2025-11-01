@@ -1,7 +1,7 @@
 export interface equipment {
     id: string,
     type: '堆垛机' | 'RGV' | '机械手' | '托盘输送线' | '四向车'
-    status: '运行中' | '故障' | '待机' | '关机',
+    status: '进行中' | '待处理' | '待审批' | '延期',
 }
 
 export interface fault {
@@ -12,13 +12,13 @@ export interface fault {
     description?: string,
     personInCharge: string,
     duration: string,
-    status: '已完成' | '剩余' | '预实差',
+    status: '优质' | '合格' | '待整改' | '不合格',
 }
 
 export interface bussiness {
     id: string,
     name: string,
-    status: '已完成' | '剩余' | '预实差',
+    status: '优质' | '合格' | '待整改' | '不合格',
 }
 
 export interface chartData {

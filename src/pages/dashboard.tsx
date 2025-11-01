@@ -11,7 +11,7 @@ import FaultTypePieChart from '@/components/FaultTypePieChart';
 const Dashboard: React.FC = () => {
     return (
         <div className="w-full min-h-screen flex flex-col">
-            <HeaderBar title="设备运营中心" />
+            <HeaderBar title="顺联仓设备维护中心" />
             
             <div className="flex-1 relative">
                 <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, #051641 0%, #041235 50%, #051641 100%)'}}>

@@ -42,15 +42,12 @@ const BusinessManagement: React.FC = () => {
 
             <div className="pt-4 pb-4">
                 <h5 className="text-center text-white text-2xl font-bold">
-                    业务管理
+                    业务质量等级占比
                 </h5>
             </div>
 
 
             <div className="flex-1 flex flex-col min-h-0">
-                <h2 className="text-white text-lg font-bold mb-2 text-center">
-                    业务状态统计
-                </h2>
                 <div className="flex-1 min-h-0">
                     <ResponsiveContainer width="100%" height="100%">
                         <PieChart>

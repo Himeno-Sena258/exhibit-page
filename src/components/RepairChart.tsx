@@ -22,22 +22,8 @@ const RepairChart: React.FC = () => {
             };
         });
     }, [repairDataList]);
+ 
 
-    const CustomTooltip = ({ active, payload, label }: any) => {
-        if (active && payload && payload.length) {
-            return (
-                <div className="bg-gray-800/90 backdrop-blur-sm border border-gray-600 rounded-lg p-3 shadow-lg">
-                    <p className="text-white font-semibold mb-2">{`日期: ${label}`}</p>
-                    {payload.map((entry: any, index: number) => (
-                        <p key={index} className="text-sm" style={{ color: entry.color }}>
-                            {`${entry.name}: ${entry.name === '维修率' ? entry.value + '%' : entry.value}`}
-                        </p>
-                    ))}
-                </div>
-            );
-        }
-        return null;
-    };
 
     return (
         <div className="w-full h-full flex flex-col">

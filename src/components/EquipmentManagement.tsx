@@ -12,40 +12,33 @@ const EquipmentManagement: React.FC = () => {
         loadEquipmentStatusList();
     }, []); 
 
-    const statusConfig = useMemo(() => ({
-        '设备总数': { count: 0, color: '#00D4FF' },
-        '运行数量': { count: 0, color: '#00BFFF' },
-        '故障数量': { count: 0, color: '#FF6B6B' },
-        '待机数量': { count: 0, color: '#FFD93D' },
-        '关机数量': { count: 0, color: '#A0A0A0' }
-    }), []);
 
 
     const equipmentStats = useMemo(() => {
 
         const stats = {
-            '设备总数': { count: 0, color: '#00D4FF', label: '设备总数' },
-            '运行数量': { count: 0, color: '#00D4FF', label: '运行数量' },
-            '故障数量': { count: 0, color: '#FF6B6B', label: '故障数量' },
-            '待机数量': { count: 0, color: '#FFD93D', label: '待机数量' },
-            '关机数量': { count: 0, color: '#6C7B7F', label: '关机数量' }
+            '已完成': { count: 0, color: '#00D4FF', label: '已完成' },
+            '进行中': { count: 0, color: '#00D4FF', label: '进行中' },
+            '待处理': { count: 0, color: '#FF6B6B', label: '待处理' },
+            '待审批': { count: 0, color: '#FFD93D', label: '待审批' },
+            '延期': { count: 0, color: '#6C7B7F', label: '延期' }
         };
         
-        stats['设备总数'].count = equipmentStatusList.length;
+        stats['已完成'].count = equipmentStatusList.length;
 
         equipmentStatusList.forEach((equipment: equipment) => {
             switch (equipment.status) {
-                case '运行中':
-                    stats['运行数量'].count++;
+                case '进行中':
+                    stats['进行中'].count++;
                     break;
-                case '故障':
-                    stats['故障数量'].count++;
+                case '待处理':
+                    stats['待处理'].count++;
                     break;
-                case '待机':
-                    stats['待机数量'].count++;
+                case '待审批':
+                    stats['待审批'].count++;
                     break;
-                case '关机':
-                    stats['关机数量'].count++;
+                case '延期':
+                    stats['延期'].count++;
                     break;
             }
         });
@@ -57,7 +50,10 @@ const EquipmentManagement: React.FC = () => {
         <div className="w-full h-full flex flex-col">
             <div className="pt-4 pb-4">
                 <h5 className="text-center text-white text-2xl font-bold">
-                    设备状态
+                    业务管理
+                </h5>
+                <h5 className="text-center text-white text-lg font-bold">
+                    业务状态统计
                 </h5>
             </div>
 
@@ -66,7 +62,7 @@ const EquipmentManagement: React.FC = () => {
                     <CircularProgress
                         key={label}
                         value={count}   
-                        maxValue={equipmentStats['设备总数'].count}
+                        maxValue={equipmentStats['已完成'].count}
                         color={color}
                         label={label}
                         size={120}

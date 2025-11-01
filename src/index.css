@@ -184,3 +184,41 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom: lighten left sidebar and unify item backgrounds/text */
+.custom-sidebar [data-sidebar="sidebar"],
+.custom-sidebar [data-slot="sidebar"],
+.custom-sidebar [data-slot="sidebar-inner"] {
+  background-color: rgba(255, 255, 255, 0.08) !important; /* 稍微浅一点，区别右侧面板 */
+  backdrop-filter: saturate(140%) blur(4px);
+}
+
+/* 序号行透明背景，仿侧边栏按钮透明规则 */
+.serial-row [data-serial="chip"] {
+  background-color: transparent !important;
+}
+.serial-row [data-serial="chip"]:hover,
+.serial-row [data-serial="chip"]:focus,
+.serial-row [data-serial="chip"]:active {
+  background-color: transparent !important;
+}
+.custom-sidebar [data-sidebar="menu-button"] {
+  background-color: transparent !important; /* 与侧边栏一致（透出侧边栏背景） */
+  color: #ffffff !important;
+}
+.custom-sidebar [data-sidebar="menu-button"][data-active="true"] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Override sidebar color tokens within custom sidebar scope */
+.custom-sidebar {
+  --sidebar: rgba(255, 255, 255, 0.08);
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: rgba(255, 255, 255, 0.12);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 255, 255, 0.08);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: oklch(1 0 0 / 20%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
